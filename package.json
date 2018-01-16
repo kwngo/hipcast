@@ -2,14 +2,20 @@
   "name": "contently",
   "version": "1.0.0",
   "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
   "license": "MIT",
   "dependencies": {
     "dotenv": "^4.0.0",
+    "ioredis": "^3.2.2",
+    "joi": "^13.0.2",
     "knex": "^0.14.2",
     "koa": "^2.3.0",
     "koa-bodyparser": "^4.2.0",
     "koa-compress": "^2.0.0",
     "koa-logger": "^3.1.0",
+    "koa-ratelimit": "^4.0.0",
     "koa-response-time": "^2.0.0",
     "koa-router": "^7.2.1",
     "objection": "^0.9.3",
