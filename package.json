@@ -3,10 +3,14 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "test": "export NODE_ENV='test'; mocha **/**/*.test.js test/setup.js --exit"
   },
   "license": "MIT",
   "dependencies": {
+    "chai": "^4.1.2",
+    "chai-http": "^3.0.0",
+    "chai-uuid": "^1.0.6",
     "dotenv": "^4.0.0",
     "ioredis": "^3.2.2",
     "joi": "^13.0.2",
@@ -19,7 +23,12 @@
     "koa-response-time": "^2.0.0",
     "koa-router": "^7.2.1",
     "koa-router-version": "^1.2.0",
+    "mocha": "^5.0.0",
     "objection": "^0.9.3",
-    "pg": "^7.4.0"
+    "pg": "^7.4.0",
+    "uuid": "^3.2.1"
+  },
+  "devDependencies": {
+    "knex-cleaner": "^1.1.4"
   }
 }

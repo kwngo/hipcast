@@ -59,3 +59,5 @@ router.delete('/episodes/:id', async (ctx, next) => {
   };
 });
 
+module.exports = router;
+

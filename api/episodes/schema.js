@@ -1,11 +1,11 @@
 const Joi = require('joi');
 
 const EpisodeSchema = {
-  title: Joi.string().isRequired(),
-  description: Joi.string().isRequired(),
-  length: Joi.integer().isRequired(),
-  url: Joi.string().uri().isRequired(),
-  podcast_id: Joi.integer().isRequired()
+  title: Joi.string().required(),
+  description: Joi.string().required(),
+  length: Joi.number().integer().required(),
+  url: Joi.string().uri().required(),
+  podcast_id: Joi.number().integer().required()
 }
 
 module.exports = {
