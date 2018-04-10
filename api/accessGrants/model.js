@@ -5,7 +5,7 @@ class AccessGrant extends Base {
   static get tableName() {
     return 'access_grants';
   }
-  
+
   static get relationMappings() {
     const User = require('../users/model');
     return {

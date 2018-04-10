@@ -12,16 +12,17 @@ router.get('podcasts.list', '/podcasts', api.version({'1.0.0': async(ctx, next) 
 
 router.post('podcasts.create', '/podcasts', api.version({'1.0.0': async (ctx, next) => {
   const { body } = ctx.request;
+  console.log(ctx.state.user)
   var {error, value} = Joi.validate(body, PodcastSchema);
   if (error) {
     console.error(error);
     ctx.throw(400);
   }
 
-  let podcast = {title: body.name, description: body.description, website: body.website, author: body.author, thumbnail: body.thumbnail}
+  let podcast = {title: body.name, description: body.description, website: body.website, author: body.author, thumbnail: body.thumbnail, user_id: ctx.state.user.id}
 
   try {
-    let response = await Podcast.query().insert(space)
+    let response = await Podcast.query().insert(podcast)
     ctx.body = response;
   } catch(err) {
     console.error(err);
@@ -40,7 +41,7 @@ router.put('podcasts.update', '/podcasts/:id', api.version({'1.0.0': async (ctx,
   let podcast = {title: body.name, description: body.description, website: body.website, author: body.author, thumbnail: body.thumbnail}
 
   try {
-    response = await Podcast.query().patchAndFetchById(ctx.params.id, space);
+    response = await Podcast.query().patchAndFetchById(ctx.params.id, podcast);
     ctx.body = response;
   } catch(err) {
     console.error(err);
