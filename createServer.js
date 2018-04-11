@@ -44,7 +44,7 @@ function createServer(PORT) {
   const router = new Router();
 
   app.use(ratelimit({
-    db: new Redis(),
+    db: new Redis(process.env.REDIS_URL),
     duration: 60000,
     errorMessage: 'Sometimes You Just Have to Slow Down.',
     id: (ctx) => ctx.ip,
