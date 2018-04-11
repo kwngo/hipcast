@@ -1,2 +1,3 @@
 var createServer = require('./createServer');
-createServer(5000);
+
+createServer(process.env.PORT || 5000);

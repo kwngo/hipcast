@@ -11,12 +11,11 @@ const logger = require('koa-logger');
 const responseTime = require('koa-response-time');
 const AccessGrant = require('./api/accessGrants/model');
 
-const PORT = 5000;
 
 // Load env variables
 require('dotenv').config()
 
-var requireAuthToken = function() {
+var requireAuthToken = () => {
   return async(ctx, next) => {
     if (!ctx.header || !ctx.header.authorization) {
       ctx.throw(401, 'Authorization header not found')
